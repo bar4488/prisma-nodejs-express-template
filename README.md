@@ -7,8 +7,8 @@
 
 ## How to use CLI?
 
-1. install `typeorm` globally: `npm i -g typeorm`
-2. run `typeorm -h` to show list of available commands
+1. `npm install`
+2. `npm run prisma-gen` will tell prisma to analyse the database and create datamodels from it.
 3. run `npm start` to start the server in debug environment, the server will watch for file changes and update accordingly.
 4. run `npm prod` to build the production package.
 
