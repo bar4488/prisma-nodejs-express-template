@@ -1,10 +1,8 @@
 import { Request, Response } from "express";
 import * as jwt from "jsonwebtoken";
-import { getRepository } from "typeorm";
-import { validate } from "class-validator";
-
-import { User } from "../entity/User";
 import config from "../config/config";
+import { prisma } from '../config/prisma';
+import * as bcrypt from 'bcryptjs';
 
 class AuthController {
     static login = async (req: Request, res: Response) => {
@@ -17,17 +15,18 @@ class AuthController {
         }
 
         //Get user from database
-        const userRepository = getRepository(User);
-        let user: User;
-        try {
-            user = await userRepository.findOneOrFail({ where: { email } });
-        } catch (error) {
+        const user = await prisma.user.findOne({
+            where: {
+                email: email
+            }
+        });
+        if (!user) {
             res.status(401).send('{"error": true, "message": "user does not exists", "msg_code", 2}');
             return;
         }
 
         //Check if encrypted password match
-        if (!user.checkIfUnencryptedPasswordIsValid(password)) {
+        if (!bcrypt.compareSync(password, user.password)) {
             res.status(401).send('{"error": true, "message": "wrong password", "msg_code": 3');
             return;
         }
@@ -53,31 +52,34 @@ class AuthController {
             res.status(400).send();
         }
 
-        //Get user from the database
-        const userRepository = getRepository(User);
-        let user: User;
-        try {
-            user = await userRepository.findOneOrFail(id);
-        } catch (id) {
-            res.status(401).send();
+        //Get user from database
+        const user = await prisma.user.findOne({
+            where: {
+                id: id
+            }
+        });
+        if (!user) {
+            res.status(401).send('{"error": true, "message": "user does not exists", "msg_code", 2}');
+            return;
         }
 
         //Check if old password matchs
-        if (!user.checkIfUnencryptedPasswordIsValid(oldPassword)) {
+        if (!bcrypt.compareSync(oldPassword, user.password)) {
             res.status(401).send();
             return;
         }
 
         //Validate de model (password lenght)
-        user.password = newPassword;
-        const errors = await validate(user);
-        if (errors.length > 0) {
-            res.status(400).send(errors);
-            return;
-        }
+        user.password = bcrypt.hashSync(newPassword);
         //Hash the new password and save
-        user.hashPassword();
-        userRepository.save(user);
+        prisma.user.update({
+            where: {
+                id: user.id
+            },
+            data: {
+                password: user.password
+            }
+        });
 
         res.status(204).send();
     };

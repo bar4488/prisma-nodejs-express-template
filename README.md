@@ -14,11 +14,12 @@
 
 ## useful guides:
 
-#### simple app using nodejs and express:
-https://medium.com/javascript-in-plain-english/creating-a-rest-api-with-jwt-authentication-and-role-based-authorization-using-typescript-fbfa3cab22a4
-
 #### using nodejs in production with pm2 and apache:
 https://www.serverlab.ca/tutorials/development/nodejs/run-nodejs-with-pm2-and-apache-2-4-on-ubuntu-18-04/
+
+#### express framework best practices for production.
+https://expressjs.com/en/advanced/best-practice-performance.html
+
 ## commands to know:
 
 ### tools for typescript support:
@@ -28,7 +29,8 @@ https://www.serverlab.ca/tutorials/development/nodejs/run-nodejs-with-pm2-and-ap
 
 `ts-node-dev`: same as above, but restarts with every file change.
 
+`npx prisma`: the prisma cli tool.
 
-### typeorm:
+`npx prisma introspect`: introspecting the database scheme and converting it to typescript types.
 
-`typeorm migration:create -n <migration_name>`: creates a new migration file
+`npx prisma generate`: convering the prisma scheme into a usable typescript module.
