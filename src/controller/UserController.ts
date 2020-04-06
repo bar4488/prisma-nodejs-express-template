@@ -7,7 +7,10 @@ class UserController {
 
     static listAll = async (req: Request, res: Response) => {
         //Get users from database
-        const users = await prisma.user.findMany();
+        const users = await prisma.user.findMany({
+            include: { token: true },
+            orderBy: { id: "desc" }
+        });
 
         //Send the users object
         res.send(users);

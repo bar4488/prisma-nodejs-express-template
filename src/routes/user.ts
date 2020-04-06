@@ -1,11 +1,15 @@
 import { Router } from "express";
 import UserController from "../controller/UserController";
-import { validateToken } from "../middleware/checkJwt";
+import { validateToken } from "../middleware/validateToken";
+import { verifyParams } from "../middleware/verifyParams";
 
 const router = Router();
 
 //Get all users
-router.get("/", [validateToken], UserController.listAll);
+router.get("/", [
+    validateToken],
+    UserController.listAll
+);
 
 // Get one user
 router.get(

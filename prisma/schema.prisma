@@ -7,10 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model token {
+  client String
+  token  String @id
+  userId Int
+  user   user   @relation(fields: [userId], references: [id])
+
+  @@index([userId], name: "user_id")
+}
+
 model user {
   createdAt DateTime @default(dbgenerated())
   email     String   @unique
   id        Int      @default(autoincrement()) @id
   password  String
   updatedAt DateTime @default(dbgenerated())
+  token     token[]
 }
