@@ -1,4 +1,4 @@
-# Example how to use Express and TypeORM with TypeScript
+# Example how to use Express and Prisma with TypeScript
 
 1. clone repository 
 2. run `npm i`
