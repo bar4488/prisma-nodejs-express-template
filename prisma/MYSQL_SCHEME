@@ -24,16 +24,6 @@ CREATE TABLE `token` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `token`
---
-
-LOCK TABLES `token` WRITE;
-/*!40000 ALTER TABLE `token` DISABLE KEYS */;
-INSERT INTO `token` VALUES ('19c78a0bd4c7c190fd95cc02646de1d5ae4f6701ed904eeea8883e87e8c3af66',11,'mobile'),('2f7812efdef4cd2c286e4cab35ab4d1b07a12d2a6dd816efc444adb1e0c15662',11,'mobile'),('762488dddad54f568c7b8b972ea2d0e905b94d533de1ed8de33ab5524ef0afd6',11,'mobile'),('80a3412c47e573c1d92d1de23005e120f5c44d6a6045551ac202bddca1c4dd5d',11,'mobile'),('831c5e7b7ff90ec22e7ed9cc9fcb88201833949f65854d05a035730ca7b63baa',11,'mobile'),('8ebf0d9a3d3e42f31f8aa0bdf93333a02cb0c9ac76611bfaa5ac539a3a5957cd',11,'mobile'),('8fe022823007b223a341404da853b7db5ec072b3bbd14daddcbed0e1ac52ccb3',11,'mobile'),('95fb3fd307c475e43cc00884f1063b6209aba7a4a2f54b2dbd32db0e99184d8a',11,'mobile'),('963f524748f541f96fb24e67426cee29d056adf276c2c0b146bf1b98719a12d2',11,'mobile'),('9d16dec6a1938a1e03d2652d7e11960931210da2c3366a1e3be75a7cb726680c',11,'mobile'),('a56b807b928d62a477798912c28a3452d7e1bbcbb90eebb19f9365945563886e',11,'mobile'),('a8e0e7e32b56465269c591afb234ceb46289fdeca8dc874f74790fcc91d2b509',11,'mobile'),('bfbf453bf776fd83186b02176acd2b16bc385cb713a28c3b1e759d23f2ad3d7d',11,'mobile'),('c5091722749fc1fbb067950f2f9d8340709c64c94fd63c2edf023ef9f8910e34',11,'mobile'),('cdab9a541cabb058f90c5997334aa51e218324694da97ff054386fb33594abd6',11,'mobile'),('d58e84298e28b473ab30261609ce4f087aa21c1fe60e12374d2f00b1eeaffe2c',11,'mobile'),('e0adac8d6565f322c97651ce41e155c9a76bd916550459bca91fcc38a8620955',11,'mobile'),('e5091a17eda8a7335581ce53fb5e063402d19743e269a71b5e2069f2dd951bc2',11,'mobile'),('e89f8df37e95ce2668050f5bd69672d3c03d8696b82ff21279f4fbb5f2c2daa9',11,'mobile'),('f90f69b7a825af30144414f8e52748aaeb147ebd27d804866e089ad402a8ad6e',11,'mobile');
-/*!40000 ALTER TABLE `token` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user`
 --
 
