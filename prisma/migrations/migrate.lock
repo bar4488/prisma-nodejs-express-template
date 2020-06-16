@@ -1,0 +1,5 @@
+# Prisma Migrate lockfile v1
+
+20200615213656-added_admin
+20200615231727-admin-create-date
+20200615231835-admin-password

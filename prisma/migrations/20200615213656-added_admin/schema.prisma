@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 model Token {
@@ -15,19 +15,9 @@ model Token {
 }
 
 model Admin {
-  id         Int          @default(autoincrement()) @id
-  name       String
-  email      String       @unique
-  password   String
-  createdAt  DateTime     @default(now())
-  AdminToken AdminToken[]
-}
-
-model AdminToken {
-  client  String
-  token   String @id
-  adminId Int
-  admin   Admin  @relation(fields: [adminId], references: [id])
+  id        Int    @default(autoincrement()) @id
+  name      String
+  email     String @unique
 }
 
 model User {

@@ -8,7 +8,7 @@ import * as rand from "rand-token";
 import { randomBytes } from "crypto";
 import { ServerError, Errors } from "../middleware/errorHandler";
 
-class AuthController {
+class AdminController {
   static login = async (req: Request, res: Response, next: NextFunction) => {
     //Check if username and password are set
     let { email, password }: { email: string; password: string } = req.body;
@@ -94,4 +94,4 @@ class AuthController {
     res.status(204).send();
   };
 }
-export default AuthController;
+export default AdminController;

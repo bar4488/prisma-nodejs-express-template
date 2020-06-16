@@ -6,7 +6,7 @@ import { verifyParams } from "../middleware/verifyParams";
 const router = Router();
 //Login route
 router.post("/login",
-    verifyParams("email", "password", "client"),
+    verifyParams("email", "password"),
     AuthController.login
 );
 
